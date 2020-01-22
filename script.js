@@ -76,5 +76,5 @@ function displayWeather(city){
          };
     })
 }
-function renderButtons() {
+// function renderButtons() {
     
