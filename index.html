@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script src="https://use.fontawesome.com/9cae87ff59.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1> Weather Dashboard</h1>
+        </header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 searchButtonDiv">
+                    <h5>Search for a City: </h5>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search City" id="cityTextBox">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary text-white bg-info" id="searchCity" type="button"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="row" id="searchHistoryDiv"></div>
+                </div>
+
+                <div class="col-sm offset-sm-2"  id="displayArea">
+                    <div class="weatherDisplay">
+                        <div id="currentCity">
+                            <h2 id="cityName"></h2>
+                            <p id="cityTemp"></p>
+                            <p id="cityHumidity"></p>
+                            <p id="cityWindSpeed"></p>
+                            <p><span id="cityUvIndex"></span></p>
+                        </div>
+                        <div id="cityInfo"></div>
+                    </div>
+                    <div class="row" id="daysForecast">
+                        <div class="weatherForecast">
+                            <h2 id="forecastHeading"></h2>
+                            <div class="fivedays"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
