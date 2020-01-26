@@ -96,11 +96,11 @@ function renderButtons() {
     var cityInitial = $("#cityTextBox").val().trim();
     var citySearch=cityInitial.charAt(0).toUpperCase() + cityInitial.substring(1);//Sets the the first character as a capital
     if (cities.indexOf($("#cityTextBox").val().trim()) === -1) {// Avoids repeat search history buttons
-             $("#searchHistoryDiv").append($("<button>").addClass("past-city").attr("city-name",citySearch ).text(citySearch).on("click", function () {
+             $("#searchHistoryDiv").append($("<button>").addClass("past-city btn btn-outline-secondary btn-lg btn-block").attr("city-name",citySearch ).text(citySearch).on("click", function () {
                 console.log($(this).attr("city-name"))       
                 displayWeather($(this).attr("city-name"));
             })).append($('<br />'));
              cities.push(citySearch);
     }
-    //$(".past-city") 
+
 }
