@@ -20,6 +20,9 @@ height:60px;
     margin-right: 8px;
     border-color: black;
 }
+.searchBtn{
+    background-color:#1E90FF;
+}
 #currentCity{
     border: 1px solid  #f2f2f2;
    

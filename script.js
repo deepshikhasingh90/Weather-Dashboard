@@ -1,21 +1,20 @@
 var Currentdate=moment().format('DD/MM/YYYY');
 console.log(Currentdate);
 var cities=[];
-var APIKey = "8cb90584fa7ac7921c99490fc6f3d077";
+var APIKey = "8cb90584fa7ac7921c99490fc6f3d077"; 
 
-
+/*-----------Event Listener on the search Button -------------*/
 
 $("#searchCity").on("click",function(event){
     event.preventDefault();
     var city=$("#cityTextBox").val().trim();
     console.log(city);
-    // searchHistory.push(city);
     displayWeather(city)
     renderButtons()
-    // localStorage.setItem("search",JSON.stringify(searchHistory));
-    // renderSearchHistory();
+   
 })
 function displayWeather(city){
+
     $("#cityName").empty();
     $("#cityTemp").empty();
     $("#cityHumidity").empty();
@@ -39,7 +38,7 @@ function displayWeather(city){
         console.log("temperature: "+temperature + " humidity: "+ humidity+ " windspeed: " +windSpeed
         + " lonitude: "+longitude+ " latitude: "+ latitude);
 
-        // API to fetch UV index
+        /*-------------API to fetch UV index---------*/
         var queryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + latitude + "&lon=" + longitude;
 
         $.ajax({
@@ -58,9 +57,12 @@ function displayWeather(city){
             spanDiv.text(uvIndix);
             $("#cityUvIndex").text("UV Index:")
             $("#cityUvIndex").append(spanDiv);
-            // $("#cityUvIndex").append("UW Index:  " +  uvIndix);
+         
         });
     });
+
+    /*----------API call to fetch 5 days forecast----------*/
+
     queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" +city+"&units=imperial&appid=" + APIKey;;
     console.log(queryURL);
 
@@ -91,16 +93,16 @@ function displayWeather(city){
          };
     })
 }
-
+/*-----------To add buttons to the searched cities ---------*/
 function renderButtons() {
     var cityInitial = $("#cityTextBox").val().trim();
     var citySearch=cityInitial.charAt(0).toUpperCase() + cityInitial.substring(1);//Sets the the first character as a capital
     if (cities.indexOf($("#cityTextBox").val().trim()) === -1) {// Avoids repeat search history buttons
-             $("#searchHistoryDiv").append($("<button>").addClass("past-city btn btn-outline-secondary btn-lg btn-block").attr("city-name",citySearch ).text(citySearch).on("click", function () {
-                console.log($(this).attr("city-name"))       
-                displayWeather($(this).attr("city-name"));
-            })).append($('<br />'));
-             cities.push(citySearch);
+        $("#searchHistoryDiv").append($("<button>").addClass("past-city btn btn-outline-secondary btn-lg btn-block").attr("city-name",citySearch ).text(citySearch).on("click", function () {
+        console.log($(this).attr("city-name"))       
+        displayWeather($(this).attr("city-name"));
+    })).append($('<br />'));
+        cities.push(citySearch);
     }
 
 }
