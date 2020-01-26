@@ -18,4 +18,4 @@ For this project, i have build a weather dashboard application with search funct
 ### Programme logic :
 
 1. I have used OpenWeather API to retrieve weather data for cities
-2. I also have used AJAX to hook into the API to retrieve data in JSON format and then used jquery to manipulate and filter the data.
+2. I also have used AJAX to hook into the API to retrieve data in JSON format and then used jquery to manipulate and display the data.
